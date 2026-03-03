@@ -39,7 +39,7 @@ export default function Notes() {
 
   return (
     <div className={css.app}>
-      <header className={css.toolbar}>
+      <div className={css.toolbar}>
         <SearchBox value={query} onChange={handleChange} />
         {data?.notes.length != 0 && isSuccess && (
           <Pagination
@@ -51,7 +51,7 @@ export default function Notes() {
         <button className={css.button} onClick={() => setOpenedModal(true)}>
           Create note +
         </button>
-      </header>
+      </div>
       {data?.notes.length != 0 && isSuccess && <NoteList notes={data.notes} />}
       {openedModal && (
         <Modal handleClose={handleClose}>

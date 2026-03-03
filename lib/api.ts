@@ -34,6 +34,18 @@ export const useFetchNotes = (query: string, page: number) => {
   });
 };
 
+export const fetchNoteById = async (id: string) => {
+  const response = await axios.get<Note>(
+    `https://notehub-public.goit.study/api/notes/${id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${VITE_NOTEHUB_TOKEN}`,
+      },
+    }
+  );
+  return response.data;
+};
+
 export const deleteNote = async (id: string) => {
   const response = await axios.delete<Note>(
     `https://notehub-public.goit.study/api/notes/${id}`,
