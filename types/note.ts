@@ -1,4 +1,10 @@
-export type TAGS = "Todo" | "Work" | "Personal" | "Meeting" | "Shopping";
+export type TAGS =
+  | "All"
+  | "Todo"
+  | "Work"
+  | "Personal"
+  | "Meeting"
+  | "Shopping";
 
 export interface Note {
   id: string;
@@ -10,6 +16,12 @@ export interface Note {
 }
 
 export interface newTodo {
+  title: string;
+  content?: string;
+  tag: TAGS;
+}
+
+export interface NoteFormValues {
   title: string;
   content?: string;
   tag: TAGS;

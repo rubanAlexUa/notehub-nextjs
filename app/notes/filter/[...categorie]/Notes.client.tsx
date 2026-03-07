@@ -3,21 +3,23 @@
 import css from "./NotesPage.module.css";
 import { useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
+import Link from "next/link";
 
 import { useFetchNotes } from "@/lib/api";
 
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import NoteList from "@/components/NoteList/NoteList";
-import Modal from "@/components//Modal/Modal";
-import NoteForm from "@/components/NoteForm/NoteForm";
 
-export default function Notes() {
+type Props = {
+  tag: string | undefined;
+};
+
+const Notes = ({ tag }: Props) => {
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [openedModal, setOpenedModal] = useState(false);
 
-  const { data, isSuccess } = useFetchNotes(query, currentPage);
+  const { data, isSuccess } = useFetchNotes(query, currentPage, tag);
 
   const totalPages = data?.totalPages ?? 0;
 
@@ -33,10 +35,6 @@ export default function Notes() {
     setCurrentPage(selected + 1);
   };
 
-  const handleClose = () => {
-    setOpenedModal(false);
-  };
-
   return (
     <div className={css.app}>
       <div className={css.toolbar}>
@@ -48,16 +46,13 @@ export default function Notes() {
             handleChangePage={handleChangePage}
           />
         )}
-        <button className={css.button} onClick={() => setOpenedModal(true)}>
-          Create note +
-        </button>
+        <Link href="/notes/action/create">
+          <button className={css.button}>Create note +</button>
+        </Link>
       </div>
       {data?.notes.length != 0 && isSuccess && <NoteList notes={data.notes} />}
-      {openedModal && (
-        <Modal handleClose={handleClose}>
-          <NoteForm handleClose={handleClose} />
-        </Modal>
-      )}
     </div>
   );
-}
+};
+
+export default Notes;

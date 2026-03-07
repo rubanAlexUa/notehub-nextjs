@@ -6,11 +6,7 @@ import * as Yup from "yup";
 
 import { type TAGS } from "@/types/note";
 
-interface NoteFormProps {
-  handleClose: () => void;
-}
-
-export default function NoteForm({ handleClose }: NoteFormProps) {
+export default function NoteForm() {
   interface OrderFormValuse {
     title: string;
     content: string;
@@ -95,7 +91,7 @@ export default function NoteForm({ handleClose }: NoteFormProps) {
           <button
             type="button"
             className={css.cancelButton}
-            onClick={handleClose}
+            //onClick={handleClose}
           >
             Cancel
           </button>

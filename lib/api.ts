@@ -9,11 +9,12 @@ interface FetchNotesResponse {
   notes: Note[];
 }
 
-export const fetchNotes = async (query: string, page: number) => {
+export const fetchNotes = async (query: string, page: number, tag?: string) => {
   const response = await axios.get<FetchNotesResponse>(
-    "https://notehub-public.goit.study/api/notes",
+    `https://notehub-public.goit.study/api/notes`,
     {
       params: {
+        tag,
         search: query,
         page,
         perPage: 12,
@@ -26,10 +27,10 @@ export const fetchNotes = async (query: string, page: number) => {
   return response.data;
 };
 
-export const useFetchNotes = (query: string, page: number) => {
+export const useFetchNotes = (query: string, page: number, tag?: string) => {
   return useQuery({
     queryKey: ["notes", query, page],
-    queryFn: () => fetchNotes(query, page),
+    queryFn: () => fetchNotes(query, page, tag),
     placeholderData: keepPreviousData,
   });
 };
