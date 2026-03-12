@@ -3,7 +3,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { fetchServerNoteById } from "@/lib/serverApi";
+import { fetchServerNoteById } from "@/lib/api/serverApi";
 import NoteDetails from "@/app/(private routes)/notes/[id]/NoteDetails.client";
 
 type Props = {

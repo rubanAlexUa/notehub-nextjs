@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -15,7 +14,7 @@ const AuthLayout = ({ children }: Props) => {
   useEffect(() => {
     router.refresh();
     setIsLoading(false);
-  }, [router]);
+  }, [isLoading]);
 
   return <>{isLoading ? <div>Loading...</div> : children}</>;
 };

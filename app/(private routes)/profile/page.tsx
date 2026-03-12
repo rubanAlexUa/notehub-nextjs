@@ -2,7 +2,30 @@ import css from "./Profile.module.css";
 
 import Image from "next/image";
 import Link from "next/link";
-import { getServerMe } from "@/lib/serverApi";
+import { getServerMe } from "@/lib/api/serverApi";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Notehub | Profile",
+  description:
+    "NoteHub is a simple and fast app to create, organize and manage your notes by tags. Stay productive and never lose an idea.",
+  openGraph: {
+    title: "NoteHub — Your Personal Note Manager",
+    description:
+      "NoteHub is a simple and fast app to create, organize and manage your notes by tags. Stay productive and never lose an idea.",
+    url: "https://notehub.com/profile",
+    images: [
+      {
+        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+        alt: "Notehub App",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "article",
+  },
+};
+
 const Profile = async () => {
   const user = await getServerMe();
   return (

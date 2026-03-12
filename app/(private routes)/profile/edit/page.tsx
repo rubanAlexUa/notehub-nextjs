@@ -1,10 +1,10 @@
 "use client";
 import css from "./Edit.module.css";
-import { useAuthStore } from "@/lib/store/userStore";
-import { updateMe, UpdateUserRequest } from "@/lib/clientApi";
+import { useAuthStore } from "@/lib/store/authStore";
+import { updateMe } from "@/lib/api/clientApi";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getMe } from "@/lib/clientApi";
+import { getMe } from "@/lib/api/clientApi";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 

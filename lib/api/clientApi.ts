@@ -79,7 +79,6 @@ export const checkSession = async () => {
 
 export const getMe = async () => {
   const { data } = await nextServer.get<User>("/users/me");
-  console.log(data);
   return data;
 };
 

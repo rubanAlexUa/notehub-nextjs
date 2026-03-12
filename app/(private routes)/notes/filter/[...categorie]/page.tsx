@@ -1,7 +1,7 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { QueryClient } from "@tanstack/react-query";
 import Notes from "./Notes.client";
-import { fetchServerNotes } from "@/lib/serverApi";
+import { fetchServerNotes } from "@/lib/api/serverApi";
 
 type Props = {
   params: Promise<{ categorie: string[] }>;

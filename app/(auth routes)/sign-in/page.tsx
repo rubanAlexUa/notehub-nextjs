@@ -3,10 +3,10 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import css from "./SignIn.module.css";
-import { login } from "@/lib/clientApi";
-import { LoginRequest } from "@/lib/clientApi";
-import { ApiError } from "@/lib/api";
-import { useAuthStore } from "@/lib/store/userStore";
+import { login } from "@/lib/api/clientApi";
+import { LoginRequest } from "@/lib/api/clientApi";
+import { ApiError } from "@/lib/api/api";
+import { useAuthStore } from "@/lib/store/authStore";
 
 const Login = () => {
   const [error, setError] = useState("");

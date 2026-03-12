@@ -1,15 +1,15 @@
 "use client";
 import css from "./SignUp.module.css";
-import { register, RegisterRequets } from "@/lib/clientApi";
-import { ApiError } from "@/lib/api";
-import { useAuthStore } from "@/lib/store/userStore";
+import { register, RegisterRequets } from "@/lib/api/clientApi";
+import { ApiError } from "@/lib/api/api";
+import { useUserStore } from "@/lib/store/userStore";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const SignUp = () => {
   const [error, setError] = useState("");
   const router = useRouter();
-  const setUser = useAuthStore((state) => state.setUser);
+  const setUser = useUserStore((state) => state.setUser);
 
   const handleSubmit = async (formData: FormData) => {
     const user = Object.fromEntries(formData) as RegisterRequets;
