@@ -1,5 +1,5 @@
 import css from "./CerateNotes.module.css";
-import NoteForm from "@/components/NoteForm/NoteForm(normalverison)";
+import NoteForm from "@/components/NoteForm/NoteForm";
 
 const CreateNotes = () => {
   return (

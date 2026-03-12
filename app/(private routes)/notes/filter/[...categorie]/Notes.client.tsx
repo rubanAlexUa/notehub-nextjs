@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import Link from "next/link";
 
-import { useFetchNotes } from "@/lib/api";
+import { useFetchNotes } from "@/lib/clientApi";
 
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
